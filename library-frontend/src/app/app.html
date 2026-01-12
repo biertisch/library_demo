@@ -1,0 +1,22 @@
+<h1>Library Demo</h1>
+
+<div>
+	<input [(ngModel)]="newBook.title" placeholder="Title" />
+	<input [(ngModel)]="newBook.author" placeholder="author" />
+	<button (click)="addBook()">Add Book</button>
+
+	<ul>
+		<li *ngFor="let book of books">
+			{{book.title}} by {{book.author}}
+			<button (click)="viewBook(book.id!)">View</button>
+			<button (click)="deleteBook(book.id!)">Delete</button>
+		</li>
+	</ul>
+</div>
+
+<div *ngIf="selectedBook">
+	<h2>Book Details</h2>
+	<p><strong>Title:</strong> {{ selectedBook.title }}</p>
+	<p><strong>Author:</strong> {{ selectedBook.author }}</p>
+	<p><strong>Id:</strong> {{ selectedBook.id }}</p>
+</div>
